@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+
+  qor:
+    build: .
+    restart: always
+    environment:
+      DBHost: db
+    ports:
+      - 7000:7000
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: qor_example
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
